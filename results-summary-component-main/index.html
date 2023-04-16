@@ -40,21 +40,10 @@
     </div>
   
     <div class="summary-action-container">
-      <div class="summary-list-container">
+      <div class="">
         <h2>Summary</h2>
-        <div class="sumamry-list">
-          <div class="summary-item">
-            <p>Reaction</p>
-            <span><span>80</span> / 100</span> 
-          </div>
-          <div class="summary-item">
-            <p>Reaction</p>
-            <span><span>80</span> / 100</span> 
-          </div>
-          <div class="summary-item">
-            <p>Reaction</p>
-            <span><span>80</span> / 100</span> 
-          </div>
+        <div class="summary-list">
+         
         </div>
     
       </div>
@@ -86,4 +75,24 @@
     Coded by <a href="#">Your Name Here</a>.
   </div> -->
 </body>
+<script>
+   fetch("./data.json").then(res => {
+     return res.json()
+   }).then(data=>  {
+     console.log(data)
+     data.forEach(element => {
+     let div = document.createElement('div');
+      div.classList.add('summary-item');
+     div.innerHTML = `
+            <div class="summary-item-text">
+              <img src="${element.icon}" />
+              <p>${element.category}</p>
+            </div>
+            <span><span class="score">${element.score}</span> / 100</span> 
+          `
+     document.querySelector('.summary-list').appendChild(div);
+
+     });
+   })
+</script>
 </html>

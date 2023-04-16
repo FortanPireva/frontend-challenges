@@ -28,7 +28,7 @@ body {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: var(--dark-grey-blue);
   margin: 0 auto;
-  margin-top: 20%;
+  margin-top: 10%;
   display: flex;
   max-height: 500px;
   border-radius: 30px;
@@ -52,10 +52,74 @@ body {
 
 .summary-action-container {
   flex: 1;
-  padding: 0;
   margin: 0;
   height: 400px;
   border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.summary-action-container h2 {
+  color: var(--dark-grey-blue);
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+.summary-item:nth-child(1) {
+  background-color: #fef6f5;
+}
+.summary-item:nth-child(1) p {
+  color: #f28c8b;
+  font-weight: bold;
+}
+.summary-item span {
+  color: black;
+}
+.summary-item .score {
+  font-weight: bold;
+}
+
+.summary-item:nth-child(2) {
+  background-color: #fefbf2;
+}
+.summary-item:nth-child(2) p {
+  color: #ecca76;
+  font-weight: bold;
+}
+
+.summary-item:nth-child(3) {
+  background-color: #f2fbfa;
+}
+.summary-item:nth-child(3) p {
+  color: #68b3a2;
+  font-weight: bold;
+}
+
+.summary-item:nth-child(4) {
+  background-color: #f3f3fd;
+}
+.summary-item:nth-child(4) p {
+  color: #5157bd;
+  font-weight: bold;
+}
+
+.summary-item {
+  padding: 12px 10px;
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  margin: 10px 0px;
+  width: 250px;
+  border-radius: 10px;
+}
+
+.summary-item-text {
+  display: flex;
+  gap: 10px;
+}
+.summary-item-text img {
+  width: 20px;
 }
 
 .summary-circle {
@@ -100,4 +164,52 @@ body {
   width: 200px;
   text-align: center;
   opacity: 0.4;
+}
+
+.summary-cta button {
+  width: 280px;
+  padding: 15px;
+  color: var(--white);
+  background-color: #303b59;
+  border-radius: 25px;
+  border: none;
+  margin-top: 20px;
+}
+
+.summary-cta button:hover {
+  cursor: pointer;
+  background-color: var(--violet-blue-circle);
+}
+
+@media screen and (max-width: 480px) {
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+  }
+  .summary-container {
+    flex-direction: column;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+  }
+  .summary-total-container {
+    flex: 3;
+    width: 100%;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+  .summary-description {
+    width: 250px;
+  }
+  .summary-action-container {
+    flex: 6;
+  }
+  .summary-cta button {
+    width: 300px;
+  }
+  .summary-item {
+    width: 300px;
+  }
 }
