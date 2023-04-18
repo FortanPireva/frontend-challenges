@@ -6,6 +6,7 @@ interface StepLinkProps {
   index: number;
   step: string;
   title: string;
+  onClick: (index: number) => {};
 }
 
 const StepLink = (props: StepLinkProps) => {
