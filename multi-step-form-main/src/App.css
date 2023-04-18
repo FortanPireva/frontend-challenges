@@ -74,8 +74,29 @@
   background-color: hsl(213, 96%, 18%);
   color: white;
 }
+.buttons .back {
+  outline: none;
+  border: none;
+  padding: 10px;
+  background-color: transparent;
+  color: hsl(213, 96%, 18%);
+}
+.buttons .next:hover {
+  cursor: pointer;
+  background-color: hsl(228, 100%, 84%);
+}
 
 .buttons button:hover {
   cursor: pointer;
-  background-color: hsl(228, 100%, 84%);
+}
+
+.step {
+  margin: 0 auto;
+  width: 400px;
+  margin-top: 50px;
+  height: 350px;
+}
+
+.bold {
+  font-weight: bold;
 }

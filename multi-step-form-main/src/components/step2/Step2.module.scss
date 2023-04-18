@@ -1,0 +1,53 @@
+@use "../../variables";
+
+.cards{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    gap:15px;
+    .card {
+        display: flex;
+        padding: 10px;
+        height: 150px;
+        flex:1;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        border: 1px solid  variables.$purplish_blue;
+        background-color: variables.$magnolia;
+        border-radius: 5px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        &:hover {
+            cursor: pointer;
+            background-color: white;
+        }
+        .icon  img {
+            width: 30px;
+            height: 30px;
+        }
+        .info {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            h3 {
+                font-size: 14px;
+            }
+            span {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+.option {
+    margin-top: 30px;
+    padding: 12px;
+    display: flex;
+    gap:15px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    width: 100%;
+    background-color: variables.$magnolia ;
+}

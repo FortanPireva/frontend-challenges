@@ -1,0 +1,32 @@
+
+@use "../../variables";
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.card {
+    flex:1;
+    width: 100%;
+    border: 1px solid  variables.$purplish_blue;
+    background-color: variables.$magnolia;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > :nth-child(1) {
+        flex:1;
+    }
+    > :nth-child(2) {
+        text-align: left;
+        flex:5;
+    }
+    > :nth-child(3) {
+        flex:1;
+        color:variables.$purplish_blue;
+    }
+}

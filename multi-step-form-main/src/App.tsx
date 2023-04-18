@@ -5,6 +5,7 @@ import "./App.css";
 import Sidebar from "./components/sidebar/Sidebar";
 import Step1 from "./components/step1/Step1";
 import Step2 from "./components/step2/Step2";
+import Step3 from "./components/step3/Step3";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -46,6 +47,7 @@ function App() {
         <div className="step">
           {step == 1 && <Step1 />}
           {step == 2 && <Step2 />}
+          {step == 3 && <Step3 />}
         </div>
 
         <div className="buttons">

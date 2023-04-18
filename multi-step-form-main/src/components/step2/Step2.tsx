@@ -26,17 +26,17 @@ const Step2 = () => {
   return (
     <div className={css.container}>
       <div className={css.info}>
-        <h1>Selet your plan</h1>
+        <h1>Select your plan</h1>
         <p>You have the option of monthly or yearly billing</p>
       </div>
       <div className={css.cards}>
         {options.map((option) => {
           return (
             <div className={css.card}>
-              <div>
+              <div className={css.icon}>
                 <img src={option.icon} width={20} height={20} />
               </div>
-              <div>
+              <div className={css.info}>
                 <h3>{option.name}</h3>
                 <p>
                   {isMonthly
@@ -50,13 +50,13 @@ const Step2 = () => {
         })}
       </div>
       <div className={css.option}>
-        <p>Monthly</p>
+        <p className={isMonthly ? "bold" : ""}>Monthly</p>
         <input
           type={"checkbox"}
           checked
           onChange={() => setIsMonthly(!isMonthly)}
         />
-        <p>Yearly</p>
+        <p className={!isMonthly ? "bold" : ""}>Yearly</p>
       </div>
     </div>
   );
