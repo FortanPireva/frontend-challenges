@@ -11,25 +11,21 @@ function App() {
   const [step, setStep] = useState(1);
   const links = [
     {
-      active: false,
       index: 1,
       step: "Step 1",
       title: "Your Info",
     },
     {
-      active: true,
       index: 2,
       step: "Step 2",
       title: "Select Plan",
     },
     {
-      active: false,
       index: 3,
       step: "Step 3",
       title: "Add-Ons",
     },
     {
-      active: false,
       index: 4,
       step: "Step 4",
       title: "Summary",
@@ -39,6 +35,7 @@ function App() {
     <div className="App">
       <div className="sidebar">
         <Sidebar
+          step={step}
           links={links}
           onClick={(index: number) => {
             console.log("hey");
@@ -46,8 +43,23 @@ function App() {
         />
       </div>
       <div className="main">
-        {step == 1 && <Step1 onNext={() => setStep(2)} />}
-        {step == 2 && <Step2 onNext={() => setStep(3)} />}
+        <div className="step">
+          {step == 1 && <Step1 />}
+          {step == 2 && <Step2 />}
+        </div>
+
+        <div className="buttons">
+          {step !== 4 && (
+            <button className="next" onClick={() => setStep(step + 1)}>
+              Next Step
+            </button>
+          )}
+          {step !== 1 && (
+            <button className="back" onClick={() => setStep(step - 1)}>
+              Back
+            </button>
+          )}
+        </div>
       </div>
       {/* <!-- Sidebar start -->
 

@@ -1,10 +1,8 @@
 import React, { ChangeEvent, ChangeEventHandler, useState } from "react";
 import css from "./Step1.module.scss";
-interface Step1Props {
-  onNext: () => void | {};
-}
+interface Step1Props {}
 
-const Step1 = ({ onNext }: Step1Props) => {
+const Step1 = ({}: Step1Props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -47,12 +45,6 @@ const Step1 = ({ onNext }: Step1Props) => {
             placeholder={"e.g +49 17612738396"}
           />
         </div>
-      </div>
-
-      <div className="buttons">
-        <button className="next" onClick={onNext}>
-          Next Step
-        </button>
       </div>
     </div>
   );
