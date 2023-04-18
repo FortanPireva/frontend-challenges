@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, ChangeEventHandler, useState } from "react";
 import css from "./Step1.module.scss";
-const Step1 = () => {
+interface Step1Props {
+  onNext: () => void | {};
+}
+
+const Step1 = ({ onNext }: Step1Props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
 
-  const handleNameChange = () => {};
-
-  const handlePhoneChange = () => {};
-  const handleEmailChange = () => {};
   return (
     <div className={css.container}>
       <div className={css.info}>
@@ -23,7 +23,7 @@ const Step1 = () => {
             name="name"
             id="name"
             value={name}
-            onChange={handleNameChange}
+            onChange={(e) => setName(e.target.value)}
           />
         </div>
         <div className="form-control">
@@ -33,7 +33,7 @@ const Step1 = () => {
             name="email"
             id="email"
             value={email}
-            onChange={handleEmailChange}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className="form-control">
@@ -43,13 +43,16 @@ const Step1 = () => {
             name="phone"
             id="phone"
             value={phoneNumber}
-            onChange={handlePhoneChange}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            placeholder={"e.g +49 17612738396"}
           />
         </div>
       </div>
 
-      <div className="next">
-        <button>Next Step</button>
+      <div className="buttons">
+        <button className="next" onClick={onNext}>
+          Next Step
+        </button>
       </div>
     </div>
   );

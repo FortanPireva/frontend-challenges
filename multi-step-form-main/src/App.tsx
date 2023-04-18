@@ -2,12 +2,53 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import Sidebar from "./components/sidebar/Sidebar";
+import Step1 from "./components/step1/Step1";
+import Step2 from "./components/step2/Step2";
 
 function App() {
   const [count, setCount] = useState(0);
-
+  const [step, setStep] = useState(1);
+  const links = [
+    {
+      active: false,
+      index: 1,
+      step: "Step 1",
+      title: "Your Info",
+    },
+    {
+      active: true,
+      index: 2,
+      step: "Step 2",
+      title: "Select Plan",
+    },
+    {
+      active: false,
+      index: 3,
+      step: "Step 3",
+      title: "Add-Ons",
+    },
+    {
+      active: false,
+      index: 4,
+      step: "Step 4",
+      title: "Summary",
+    },
+  ];
   return (
     <div className="App">
+      <div className="sidebar">
+        <Sidebar
+          links={links}
+          onClick={(index: number) => {
+            console.log("hey");
+          }}
+        />
+      </div>
+      <div className="main">
+        {step == 1 && <Step1 onNext={() => setStep(2)} />}
+        {step == 2 && <Step2 onNext={() => setStep(3)} />}
+      </div>
       {/* <!-- Sidebar start -->
 
 Step 1 Your info Step 2 Select plan Step 3 Add-ons Step 4 Summary
@@ -55,14 +96,6 @@ using our platform. If you ever need support, please feel free to email us
 at support@loremgaming.com.
 
 <!-- Step 5 end --> */}
-
-      <div className="attribution">
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
-          Frontend Mentor
-        </a>
-        . Coded by <a href="#">Your Name Here</a>.
-      </div>
     </div>
   );
 }

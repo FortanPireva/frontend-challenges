@@ -3,6 +3,7 @@ import css from "./Step2.module.scss";
 import ArcadeIcon from "../../assets/images/icon-arcade.svg";
 import ProIcon from "../../assets/images/icon-pro.svg";
 import AdvancedIcon from "../../assets/images/icon-advanced.svg";
+
 const Step2 = () => {
   const [isMonthly, setIsMonthly] = useState(false);
   const options = [
@@ -56,10 +57,6 @@ const Step2 = () => {
           onChange={() => setIsMonthly(!isMonthly)}
         />
         <p>Yearly</p>
-      </div>
-      <div className="buttons">
-        <button>Go back</button>
-        <button>Next Step</button>
       </div>
     </div>
   );

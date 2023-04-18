@@ -15,9 +15,9 @@ const StepLink = (props: StepLinkProps) => {
       <div className={clsx([css.number, props.active ? css.active : ""])}>
         {props.index}
       </div>
-      <div>
+      <div className={css.info}>
         <p>{props.step}</p>
-        <h2>{props.title}</h2>
+        <h3>{props.title}</h3>
       </div>
     </div>
   );
