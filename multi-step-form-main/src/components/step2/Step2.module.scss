@@ -55,9 +55,9 @@
     background-color: variables.$magnolia ;
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 600px) {
     .container {
-        max-width: 300px;
+        min-width: 250px;
         h1 {
         }
     }
@@ -69,6 +69,7 @@
              flex-direction: row;
              justify-content: flex-start;
              gap: 1rem;
+             width: 100%;
         }
     }
 }
