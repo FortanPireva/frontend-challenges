@@ -11,7 +11,7 @@
     flex:1;
     width: 100%;
     border: 1px solid  variables.$purplish_blue;
-    background-color: variables.$magnolia;
+    background-color: #fff;
     border-radius: 5px;
     margin: 10px;
     padding: 10px;
@@ -29,4 +29,10 @@
         flex:1;
         color:variables.$purplish_blue;
     }
+    &:hover {
+        cursor: pointer;
+    }
+}
+.picked {
+    background-color: variables.$magnolia;
 }

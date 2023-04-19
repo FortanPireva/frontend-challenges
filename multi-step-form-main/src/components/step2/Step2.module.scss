@@ -19,7 +19,7 @@
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
         &:hover {
             cursor: pointer;
-            background-color: white;
+            // background-color: white;
         }
         .icon  img {
             width: 30px;
@@ -37,6 +37,9 @@
                 font-size: 12px;
             }
         }
+    }
+    .activated {
+        background-color: white;
     }
 }
 

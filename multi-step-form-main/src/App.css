@@ -69,6 +69,7 @@
 .buttons .next {
   outline: none;
   border: none;
+  width: 100px;
   padding: 10px;
   border-radius: 5px;
   background-color: hsl(213, 96%, 18%);
@@ -80,6 +81,16 @@
   padding: 10px;
   background-color: transparent;
   color: hsl(213, 96%, 18%);
+}
+.buttons .confirm {
+  outline: none;
+  border: none;
+  width: 100px;
+
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: hsl(243, 100%, 62%);
+  color: white;
 }
 .buttons .next:hover {
   cursor: pointer;

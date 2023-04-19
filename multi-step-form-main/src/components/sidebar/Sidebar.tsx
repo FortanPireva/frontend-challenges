@@ -21,7 +21,7 @@ const Sidebar = (props: SidebarProps) => {
         {props.links.map((link, i) => {
           return (
             <StepLink
-              active={i + 1 == props.step}
+              active={i + 1 == props.step || (i + 1 == 4 && props.step == 5)}
               {...link}
               onClick={props.onClick}
             />

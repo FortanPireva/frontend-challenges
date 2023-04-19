@@ -1,0 +1,41 @@
+@use "../../variables";
+
+.boxcontainer {
+    background-color: variables.$alabaster;
+    padding: 20px;
+    margin-top: 30px;
+
+    .summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        .plan {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            h1 {
+                font-size: 1rem;
+            }
+        }
+    }
+    .addons {
+        border-top: 1px solid rgba(0,0,0,0.2);
+        .addon {
+            display: flex;
+            margin-top: 10px;
+            justify-content: space-between;
+        }
+    }
+}
+.total {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .price {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: variables.$purplish_blue;
+    }
+}

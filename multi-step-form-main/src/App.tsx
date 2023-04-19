@@ -6,10 +6,66 @@ import Sidebar from "./components/sidebar/Sidebar";
 import Step1 from "./components/step1/Step1";
 import Step2 from "./components/step2/Step2";
 import Step3 from "./components/step3/Step3";
+import { AddOn } from "./model/types";
+import { Plan } from "./model/types";
+import ArcadeIcon from "./assets/images/icon-arcade.svg";
+import ProIcon from "./assets/images/icon-pro.svg";
+import AdvancedIcon from ".//assets/images/icon-advanced.svg";
+import Step4 from "./components/step4/Step4";
+import Step5 from "./components/step5/Step5";
+const initialAddOns: AddOn[] = [
+  {
+    id: 1,
+    title: "Online service",
+    description: "Access to multiplayer games",
+    isPicked: false,
+    priceMonthly: 1,
+  },
+  {
+    id: 2,
+    title: "Larger storage",
+    description: "Extra 1TB of cloud save",
+    isPicked: false,
+    priceMonthly: 2,
+  },
+  {
+    id: 3,
+    title: "Customizable profile",
+    description: "Custom theme on your profile",
+    isPicked: false,
+    priceMonthly: 2,
+  },
+];
+const initialOptions: Plan[] = [
+  {
+    id: 1,
+    name: "Arcade",
+    priceYearly: 90,
+    icon: ArcadeIcon,
+    activated: false,
+  },
+  {
+    id: 2,
+    name: "Advanced",
+    priceYearly: 120,
+    icon: AdvancedIcon,
+    activated: false,
+  },
+  {
+    id: 3,
+    name: "Pro",
+    priceYearly: 150,
+    icon: ProIcon,
+    activated: false,
+  },
+];
 
 function App() {
   const [count, setCount] = useState(0);
   const [step, setStep] = useState(1);
+  const [addOns, setAddOns] = useState(initialAddOns);
+  const [plans, setPlans] = useState(initialOptions);
+  const [isMonthly, setIsMonthly] = useState(false);
   const links = [
     {
       index: 1,
@@ -32,6 +88,7 @@ function App() {
       title: "Summary",
     },
   ];
+
   return (
     <div className="App">
       <div className="sidebar">
@@ -46,22 +103,71 @@ function App() {
       <div className="main">
         <div className="step">
           {step == 1 && <Step1 />}
-          {step == 2 && <Step2 />}
-          {step == 3 && <Step3 />}
+          {step == 2 && (
+            <Step2
+              plans={plans}
+              onPlanClicked={(id: number) => {
+                const copy: Plan[] = JSON.parse(JSON.stringify(plans));
+                copy.forEach((plan) => {
+                  if (plan.id == id) {
+                    plan.activated = !plan.activated;
+                  } else {
+                    plan.activated = false;
+                  }
+
+                  setPlans(copy);
+                });
+              }}
+              isMonthly={isMonthly}
+              setIsMonthly={setIsMonthly}
+            />
+          )}
+          {step == 3 && (
+            <Step3
+              addons={addOns}
+              onAddOnChange={(id: number) => {
+                const copy: AddOn[] = JSON.parse(JSON.stringify(addOns));
+                copy.forEach((addon) => {
+                  if (addon.id == id) {
+                    addon.isPicked = !addon.isPicked;
+                  }
+                });
+
+                setAddOns(copy);
+              }}
+              isMonthly={isMonthly}
+            />
+          )}
+          {step == 4 && (
+            <Step4
+              isMonthly={isMonthly}
+              onChangePlan={() => setStep(2)}
+              selectedPlan={plans.find((plan) => plan.activated) || plans[0]}
+              selectedAddons={addOns.filter((addon) => addon.isPicked)}
+            />
+          )}
+          {step == 5 && <Step5 />}
         </div>
 
-        <div className="buttons">
-          {step !== 4 && (
-            <button className="next" onClick={() => setStep(step + 1)}>
-              Next Step
-            </button>
-          )}
-          {step !== 1 && (
-            <button className="back" onClick={() => setStep(step - 1)}>
-              Back
-            </button>
-          )}
-        </div>
+        {step !== 5 && (
+          <div className="buttons">
+            {step === 4 && (
+              <button className="confirm" onClick={() => setStep(5)}>
+                Confirm
+              </button>
+            )}
+            {step !== 4 && (
+              <button className="next" onClick={() => setStep(step + 1)}>
+                Next Step
+              </button>
+            )}
+            {step !== 1 && (
+              <button className="back" onClick={() => setStep(step - 1)}>
+                Back
+              </button>
+            )}
+          </div>
+        )}
       </div>
       {/* <!-- Sidebar start -->
 

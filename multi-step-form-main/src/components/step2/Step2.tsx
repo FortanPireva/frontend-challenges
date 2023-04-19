@@ -1,28 +1,20 @@
 import React, { useState } from "react";
 import css from "./Step2.module.scss";
-import ArcadeIcon from "../../assets/images/icon-arcade.svg";
-import ProIcon from "../../assets/images/icon-pro.svg";
-import AdvancedIcon from "../../assets/images/icon-advanced.svg";
+import { Plan } from "../../model/types";
+import clsx from "clsx";
+interface Step2Props {
+  plans: Plan[];
+  onPlanClicked: (id: number) => void;
+  isMonthly: boolean;
+  setIsMonthly: (monthly: boolean) => void;
+}
 
-const Step2 = () => {
-  const [isMonthly, setIsMonthly] = useState(false);
-  const options = [
-    {
-      name: "Arcade",
-      priceYearly: 90,
-      icon: ArcadeIcon,
-    },
-    {
-      name: "Advanced",
-      priceYearly: 120,
-      icon: AdvancedIcon,
-    },
-    {
-      name: "Pro",
-      priceYearly: 150,
-      icon: ProIcon,
-    },
-  ];
+const Step2 = ({
+  plans,
+  onPlanClicked,
+  isMonthly,
+  setIsMonthly,
+}: Step2Props) => {
   return (
     <div className={css.container}>
       <div className={css.info}>
@@ -30,9 +22,15 @@ const Step2 = () => {
         <p>You have the option of monthly or yearly billing</p>
       </div>
       <div className={css.cards}>
-        {options.map((option) => {
+        {plans.map((option) => {
           return (
-            <div className={css.card}>
+            <div
+              className={clsx([
+                css.card,
+                option.activated ? css.activated : "",
+              ])}
+              onClick={() => onPlanClicked(option.id)}
+            >
               <div className={css.icon}>
                 <img src={option.icon} width={20} height={20} />
               </div>
@@ -53,7 +51,7 @@ const Step2 = () => {
         <p className={isMonthly ? "bold" : ""}>Monthly</p>
         <input
           type={"checkbox"}
-          checked
+          checked={isMonthly}
           onChange={() => setIsMonthly(!isMonthly)}
         />
         <p className={!isMonthly ? "bold" : ""}>Yearly</p>

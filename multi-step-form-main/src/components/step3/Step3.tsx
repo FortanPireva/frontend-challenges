@@ -1,24 +1,13 @@
 import React, { useState } from "react";
+import { AddOn } from "../../model/types";
 import css from "./Step3.module.scss";
-
-const Step3 = () => {
-  const options = [
-    {
-      name: "Online service",
-      description: "Access to multiplayer games",
-      price: 1,
-    },
-    {
-      name: "Larger Storeage",
-      description: "Extra 1TB of cloud save",
-      price: 2,
-    },
-    {
-      name: "Customizable Profile",
-      description: "Custom theme on your profile",
-      price: 2,
-    },
-  ];
+import clcx, { clsx } from "clsx";
+interface Step3Props {
+  addons: AddOn[];
+  onAddOnChange: (id: number) => void;
+  isMonthly: boolean;
+}
+const Step3 = ({ addons, onAddOnChange, isMonthly }: Step3Props) => {
   return (
     <div className={css.container}>
       <div className={css.info}>
@@ -26,18 +15,30 @@ const Step3 = () => {
         <p>Add-ons help enhance your gaming experience</p>
       </div>
       <div className={css.cards}>
-        {options.map((option) => {
+        {addons.map((addon) => {
           return (
-            <div className={css.card}>
+            <div
+              className={clsx([css.card, addon.isPicked ? css.picked : ""])}
+              onClick={() => onAddOnChange(addon.id)}
+            >
               <div className="checkbox">
-                <input type={"checkbox"} checked />
+                <input
+                  type={"checkbox"}
+                  checked={addon.isPicked}
+                  onChange={() => onAddOnChange(addon.id)}
+                />
               </div>
               <div className={css.info}>
-                <h3>{option.name}</h3>
-                <p>{option.description}</p>
+                <h3>{addon.title}</h3>
+                <p>{addon.description}</p>
               </div>
               <div className={css.price}>
-                <p>+${option.price}/mo</p>
+                <p>
+                  +$
+                  {isMonthly
+                    ? `${addon.priceMonthly}/mo`
+                    : `${addon.priceMonthly * 10}/yr`}
+                </p>
               </div>
             </div>
           );
