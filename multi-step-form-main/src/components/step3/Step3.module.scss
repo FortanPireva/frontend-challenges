@@ -36,3 +36,26 @@
 .picked {
     background-color: variables.$magnolia;
 }
+
+
+@media only screen and (max-width: 720px) {
+    .container {
+        max-width: 300px;
+        h3 {
+            font-size: 1rem;
+        }
+        p {
+            font-size: 12px;
+        }
+    }
+    .cards {
+        flex-direction: column;
+        .card {
+             flex-direction: row;
+             justify-content: flex-start;
+             gap: 1rem;
+             padding-top: 10px;
+             padding-bottom: 10px;
+        }
+    }
+}

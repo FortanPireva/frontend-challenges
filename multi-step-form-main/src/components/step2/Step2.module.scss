@@ -54,3 +54,21 @@
     width: 100%;
     background-color: variables.$magnolia ;
 }
+
+@media only screen and (max-width: 720px) {
+    .container {
+        max-width: 300px;
+        h1 {
+        }
+    }
+    .cards {
+        flex-direction: column;
+        margin-top: 10px;
+
+        .card {
+             flex-direction: row;
+             justify-content: flex-start;
+             gap: 1rem;
+        }
+    }
+}

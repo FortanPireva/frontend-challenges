@@ -104,10 +104,50 @@
 .step {
   margin: 0 auto;
   width: 400px;
-  margin-top: 50px;
+  margin-top: 10px;
   height: 350px;
 }
 
 .bold {
   font-weight: bold;
+}
+
+@media only screen and (max-width: 720px) {
+  .App {
+    flex-direction: column;
+    width: 100%;
+    background-color: hsl(231, 100%, 99%);
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+  }
+  .sidebar {
+    width: 100%;
+    flex: 1;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+  }
+  .main {
+    z-index: 30;
+    background-color: white;
+    padding: 20px;
+    width: 100%;
+    min-width: 300px;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 10px;
+    height: min-content;
+    max-height: 500px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 3rem;
+    position: absolute;
+    left: 0;
+    bottom: -80px;
+  }
 }
