@@ -441,5 +441,51 @@ main .clients img {
   main {
     top: 0px;
   }
+  #menuToggle {
+    display: none;
+  }
+  #menu {
+    -webkit-transform: none;
+            transform: none;
+  }
+  #menu .dropshadow {
+    display: none;
+  }
+  #menu .links {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    background-color: initial;
+    height: auto;
+    z-index: 10;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: row;
+  }
+  #menu .links .innerlinks {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+  }
+  #menu .links li img {
+    display: none;
+  }
+  #menu .links .buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
 }
 /*# sourceMappingURL=index.css.map */
