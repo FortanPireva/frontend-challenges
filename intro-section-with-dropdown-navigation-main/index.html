@@ -1,39 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <title>Frontend Mentor | Intro section with dropdown navigation</title>
 
-  Features
-  Company
-  Careers
-  About
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue&family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="logo">snap</div>
+        <nav class="nav" role="navigation">
+          <div id="menuToggle">
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="list" id="menu">
+            <div class="dropshadow">1</div>
+            <div class="links">
+              <li>
+                <div>
+                  <span>Features</span>
+                  <img src="./images/icon-arrow-up.svg" />
+                </div>
 
-  Login
-  Register
-
-  Make remote work
-
-  Get your team in sync, no matter your location. Streamline processes, 
-  create team rituals, and watch productivity soar.
-
-  Learn more
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+                <ul class="inner">
+                  <li class="inneritem">
+                    <img src="./images/icon-calendar.svg" />
+                    <p>Calendar</p>
+                  </li>
+                  <li class="inneritem">
+                    <img src="./images/icon-reminders.svg" alt="" />
+                    <p>Reminders</p>
+                  </li>
+                  <li class="inneritem">
+                    <img src="./images/icon-planning.svg"
+                    <p>Planning</p></li>
+                  <li class="inneritem">
+                    <img src="./images/icon-todo.svg"/>
+                    <p>
+                    Todo List
+                  </p></li>
+                </ul>
+              </li>
+              <li>
+                <div>
+                  <span>Company</span>
+                  <img src="./images/icon-arrow-up.svg" />
+                </div>
+                <ul class="inner">
+                  <li class="inneritem">History</li>
+                  <li class="inneritem">Our Team</li>
+                  <li class="inneritem">Blog</li>
+                </ul>
+              </li>
+              <li>Careers</li>
+              <li>About</li>
+              <div class="buttons">
+                <div class="login">
+                  <button>Login</button>
+                </div>
+                <div class="register">
+                  <button>Register</button>
+                </div>
+              </div>
+            </div>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="hero">
+          <div class="info">
+            <div class="title">
+              <h1>Make remote work</h1>
+              <p>
+                Get your team in sync, no matter your location. Streamline
+                processes, create team rituals, and watch productivity soar.
+              </p>
+              <div class="learn-more">
+                <button>Learn more</button>
+              </div>
+            </div>
+          </div>
+          <div class="hero-image"></div>
+        </div>
+      </main>
+    </div>
+  </body>
+  <script>
+    let initial_transform = document.querySelector("#menu").style.transform;
+    document.querySelector("input").addEventListener("click", () => {
+      if (document.querySelector("input").checked) {
+        document.querySelector("#menu").style.transform = "none";
+      } else {
+        document.querySelector("#menu").style.transform = initial_transform;
+      }
+    });
+  </script>
 </html>
