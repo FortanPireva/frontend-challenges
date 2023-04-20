@@ -475,8 +475,18 @@ main .clients img {
             align-items: center;
     width: 100%;
   }
-  #menu .links li img {
-    display: none;
+  #menu .links li .inner {
+    position: absolute;
+    top: 3rem;
+    background-color: white;
+    z-index: 50;
+    padding: 20px;
+  }
+  #menu .links li .inner .inneritem:hover {
+    cursor: pointer;
+  }
+  #menu .links li:hover {
+    cursor: pointer;
   }
   #menu .links .buttons {
     display: -webkit-box;
