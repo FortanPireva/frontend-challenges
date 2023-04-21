@@ -89,7 +89,9 @@ body p {
 }
 
 body .container {
-  width: 60%;
+  max-width: 90%;
+  width: 720px;
+  min-width: 600px;
   height: auto;
   margin: 0 auto;
   border-radius: 2px;
@@ -117,16 +119,22 @@ body .container {
 }
 
 body .container .image {
+  overflow: hidden;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  overflow: hidden;
+}
+
+body .container .image .mobile {
+  display: none;
 }
 
 body .container .image img {
   position: relative;
   min-width: 100%;
   height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 body .container .info {
@@ -154,13 +162,12 @@ body .container .info {
 
 body .container .info .title,
 body .container .info .description {
-  width: 70%;
+  max-width: 100%;
   text-align: left;
 }
 
 body .container .info .title {
   font-size: 1.2rem;
-  max-width: 60%;
   line-height: 2.5rem;
 }
 
@@ -213,5 +220,43 @@ body .container .add-to-cart button {
   gap: 10px;
   padding: 10px;
   border-radius: 10px;
+}
+
+@media (max-width: 680px) {
+  body .container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 0 auto;
+    min-height: 80vh;
+    min-width: 90%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  body .container .image .desktop {
+    display: none;
+  }
+  body .container .image .mobile {
+    display: block;
+    width: 100%;
+  }
+  body .container .info {
+    -webkit-box-flex: 2;
+        -ms-flex: 2;
+            flex: 2;
+    max-height: 330px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 10px;
+  }
+  body .container .info h1 {
+    font-size: 2rem;
+  }
 }
 /*# sourceMappingURL=index.css.map */

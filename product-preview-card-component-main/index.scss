@@ -86,7 +86,9 @@ body {
     font-size: 14px;
   }
   .container {
-    width: 60%;
+    max-width: 90%;
+    width: 720px;
+    min-width: 600px;
     height: auto;
     margin: 0 auto;
     border-radius: 2px;
@@ -104,12 +106,17 @@ body {
     border-radius: 10px;
     overflow: hidden;
     .image {
-      flex: 1;
       overflow: hidden;
+      flex: 1;
+
+      .mobile {
+        display: none;
+      }
       img {
         position: relative;
         min-width: 100%;
         height: auto;
+        object-fit: contain;
       }
     }
     .info {
@@ -124,12 +131,11 @@ body {
       gap: 25px;
       .title,
       .description {
-        width: 70%;
+        max-width: 100%;
         text-align: left;
       }
       .title {
         font-size: 1.2rem;
-        max-width: 60%;
         line-height: 2.5rem;
       }
       .description {
@@ -165,6 +171,37 @@ body {
         gap: 10px;
         padding: 10px;
         border-radius: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 680px) {
+  body {
+    .container {
+      flex-direction: column;
+      margin: 0 auto;
+      min-height: 80vh;
+      min-width: 90%;
+      justify-content: center;
+      align-items: center;
+      .image {
+        .desktop {
+          display: none;
+        }
+        .mobile {
+          display: block;
+          width: 100%;
+        }
+      }
+      .info {
+        flex: 2;
+        max-height: 330px;
+        justify-content: center;
+        gap: 10px;
+        h1 {
+          font-size: 2rem;
+        }
       }
     }
   }
