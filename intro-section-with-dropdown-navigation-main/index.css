@@ -81,6 +81,10 @@ h6 {
   isolation: isolate;
 }
 
+.header {
+  margin-bottom: 20px;
+}
+
 .header .logo {
   padding: 10px 15px;
   position: relative;
@@ -364,7 +368,7 @@ main .clients img {
   font-size: 22px;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 720px) {
   .hero {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -397,7 +401,7 @@ main .clients img {
   }
   .hero .content .info h1 {
     text-align: left;
-    font-size: 4rem;
+    font-size: 4.6rem;
     line-height: 3.5rem;
     margin-bottom: 30px;
   }
@@ -463,13 +467,18 @@ main .clients img {
     display: -ms-flexbox;
     display: flex;
     flex-direction: row;
+    position: relative;
+    right: 100px;
+    width: 80%;
   }
   #menu .links .innerlinks {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    gap: 20px;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -496,6 +505,9 @@ main .clients img {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 /*# sourceMappingURL=index.css.map */
